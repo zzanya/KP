@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms</title>
+</head>
+<body>
+
+<h2>Rooms</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Room Number</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>Photo</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="room : ${rooms}">
+        <td th:text="${room.id}"></td>
+        <td th:text="${room.roomNumber}"></td>
+        <td th:text="${room.type}"></td>
+        <td th:text="${room.price}"></td>
+        <td>
+            <img th:if="${room.photo != null}" th:src="${'/path/to/your/image/' + room.id}" alt="Room Photo" width="100" height="100" />
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
